@@ -1,7 +1,7 @@
-# 🏛️ 三宫六院 · Edict
+# 🏛️ 三宫六院 · SanGongLiuYuan
 
 <p align="center">
-  <strong>我用 1300 年前的帝国制度，重新设计了 AI 多 Agent 协作架构。<br>结果发现，古人比现代 AI 框架更懂分权制衡。</strong>
+  <strong>我用 1300 年前的帝国制度，重新设计了 AI 多 Agent 协作架构。<br>结果发现，古人比现代 AI 框架更懂分权制衡。特别感谢：edict（原创 https://github.com/cft0808/edict）</strong>
 </p>
 
 <p align="center">
