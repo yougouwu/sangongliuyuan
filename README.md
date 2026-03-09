@@ -1,31 +1,25 @@
-# 🏛️ 三宫六院 · SanGongLiuYuan
+# 🏛️ 三宫六院 · SanGongLiuYuan (OpenClaw Multi-Agent System)
 
 <p align="center">
-  <strong>我用 1300 年前的帝国制度，重新设计了 AI 多 Agent 协作架构。<br>结果发现，古人比现代 AI 框架更懂分权制衡。特别感谢：edict（原创 https://github.com/cft0808/edict）</strong>
+  <img src="https://img.shields.io/badge/OpenClaw-Required-blue?style=for-the-badge" alt="OpenClaw">
+  <img src="https://img.shields.io/badge/Agents-22_Specialized-8B5CF6?style=for-the-badge" alt="Agents">
+  <img src="https://img.shields.io/badge/Dashboard-Real--time-F59E0B?style=for-the-badge" alt="Dashboard">
+  <img src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge" alt="License">
 </p>
 
 <p align="center">
-  <sub>22 个 AI Agent（21 个业务角色 + 1 个兼容角色）组成三宫六院：太子分拣、皇后协理、三宫规划、门下审议、尚书派发、六院+吏部并行执行。<br>比 CrewAI 多一层<b>制度性审核</b>，比 AutoGen 多一个<b>实时看板</b>。</sub>
+  <strong>“在三宫六院系统中，9 个 Agent 不再是冰冷的 API 调用接口，而是生活在你的“赛博皇城”中、拥有独立人格与动态情绪的 “模拟 Agent (Sim-Agents)”，重构了 AI 多智能体协作架构。”</strong><br>
+  借古制御新技：比 CrewAI 多一层<b>制度性审核</b>，比 AutoGen 多一个<b>赛博实时看板</b>。<br>
+  特别感谢：<a href="https://github.com/cft0808/edict">cft0808/edict (Original Inspiration)</a>
 </p>
 
 <p align="center">
-  <a href="#-demo">🎬 看 Demo</a> ·
-  <a href="#-30-秒快速体验">🚀 30 秒体验</a> ·
-  <a href="#-架构">🏛️ 架构</a> ·
-  <a href="#-功能全景">📋 看板功能</a> ·
+  <a href="#🎬-demo">🎬 看 Demo</a> ·
+  <a href="#🚀-30-秒快速体验">🚀 30秒体验</a> ·
+  <a href="#🏛️-架构全景">🏛️ 架构</a> ·
+  <a href="#📋-储秀宫看板">📋 看板功能</a> ·
   <a href="docs/task-dispatch-architecture.md">📚 架构文档</a> ·
-  <a href="README_EN.md">English</a> ·
-  <a href="CONTRIBUTING.md">参与贡献</a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/OpenClaw-Required-blue?style=flat-square" alt="OpenClaw">
-  <img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/Agents-22_Specialized-8B5CF6?style=flat-square" alt="Agents">
-  <img src="https://img.shields.io/badge/Dashboard-Real--time-F59E0B?style=flat-square" alt="Dashboard">
-  <img src="https://img.shields.io/badge/License-MIT-22C55E?style=flat-square" alt="License">
-  <img src="https://img.shields.io/badge/Frontend-React_18-61DAFB?style=flat-square&logo=react&logoColor=white" alt="React">
-  <img src="https://img.shields.io/badge/Backend-stdlib_only-EC4899?style=flat-square" alt="Zero Backend Dependencies">
+  <a href="README_EN.md">English</a>
 </p>
 
 ---
@@ -34,212 +28,81 @@
 
 <p align="center">
   <video src="docs/Agent_video_Pippit_20260225121727.mp4" width="100%" autoplay muted loop playsinline controls>
-    您的浏览器不支持视频播放，请查看下方 GIF 或 <a href="docs/Agent_video_Pippit_20260225121727.mp4">下载视频</a>。
+    您的浏览器不支持视频播放，请查看下方预览。
   </video>
   <br>
-  <sub>🎥 三宫六院 AI 多 Agent 协作全流程演示</sub>
+  <sub>🎥 <b>从下旨到回奏：</b> Whatsapp/QQ/飞书下旨 → 太子分拣 → 三宫规划 → 门下审议 → 六院执行 → 奏折回报</sub>
 </p>
 
 <details>
-<summary>📸 GIF 预览（加载更快）</summary>
+<summary>📸 点击展开 GIF 预览（加载更快）</summary>
 <p align="center">
   <img src="docs/demo.gif" alt="三宫六院 Demo" width="100%">
-  <br>
-  <sub>飞书下旨 → 太子分拣 → 三宫规划 → 门下审议 → 六院并行执行 → 奏折回报（30 秒）</sub>
 </p>
 </details>
 
-> 🐳 **没有 OpenClaw？** 跑一行 `docker run -p 7891:7891 cft0808/edict` 即可体验完整看板 Demo（预置模拟数据）。
+---
+
+## 🤔 为什么需要“三宫六院”？
+
+大多数 Multi-Agent 框架（如 CrewAI/AutoGen）的逻辑是：*“你们几个 Agent 自己聊，聊完给我结果。”* **结果：** 过程黑盒、不可复现、质量全靠 LLM 发挥。
+
+**三宫六院 (SanGongLiuYuan)** 将中国古代帝国的**分权制衡**具象化为 22 个 Agent：
+
+| 特性对比 | CrewAI / AutoGen | **三宫六院 (OpenClaw)** | 赛博解读 |
+| :--- | :---: | :---: | :--- |
+| **审核机制** | ⚠️ 弱/无 | **✅ 门下省专职审核** | **封驳权**：方案不行直接打回，严禁盲目执行 |
+| **实时监控** | ❌ 终端日志 | **✅ 储秀宫看板** | **临朝听政**：UI 实时流转，谁在干活一目了然 |
+| **任务干预** | ❌ 无法停止 | **✅ 实时叫停/恢复** | **圣旨下达**：随时撤回或叫停正在运行的任务 |
+| **执行审计** | ⚠️ 碎片化 | **✅ 完整奏折归档** | **起居注**：5阶段时间线，完整溯源每一个逻辑 |
+| **配置热更** | ❌ 需重启脚本 | **✅ 看板一键切模型** | **册封大典**：运行时动态为 Agent 更换底层 LLM |
+
+> **核心杀手锏：门下省封驳。** 不受制约的权力必然出错。在交付给“六院”执行前，必须经过严苛的逻辑审计。
 
 ---
 
-## 🤔 为什么是三宫六部？
+## 🏛️ 架构全景
 
-大多数 Multi-Agent 框架的套路是：
 
-> *"来，你们几个 AI 自己聊，聊完把结果给我。"*
 
-然后你拿到一坨不知道经过了什么处理的结果，无法复现，无法审计，无法干预。
+### 1️⃣ 核心国策 (Core Features) 
+* 👑 **父皇 (huanghou):** 尔乃朕之眼目，守卫逻辑之重臣。门下省存在的唯一意义，就是替朕封驳一切庸才的废话。。
+* ⚖️ **太子 (taizi):** 消息分拣。闲聊自动回复，唯有“旨意”才会创建任务。
+* 👸 **皇后 (huanghou) :** 协理小太子，管理好东宫，重点是皇帝翻牌子、后宫妃嫔的养成、和皇帝的起居等。
+* 🎛️ 翻牌子大屏 (Real-time Dashboard):** 沉浸式监控 9 位 Agent 的实时工作流转。谁在偷懒，谁在疯狂输出 Token，大屏上一目了然。支持拖拽式“翻牌子”直接唤醒指定 Agent。
+* 💄 后宫养成 (Model Configuration):** 为不同的“宫院”赐配不同的灵魂。你可以精调每个 Agent 的 System Prompt（人设）和 Temperature（性格火候）。
+* 📖 赛博起居注 (Full Audit Trails):** 敬事房特供功能。详细记录每一次 API 调用、上下文流转链路、以及 Token 消耗。一切“宫斗”（Agent 间的交叉验证与逻辑冲突）与“伴驾”（执行结果）皆有迹可循。
 
-**三宫六部的思路完全不同** —— 我们用了一个在中国存在 1400 年的制度架构：
+### 2️⃣ 三宫 - 中枢调度层 (Supervision)
+* 👑 **东宫 (Router Agent):** 皇后。负责意图识别与任务分发。
+* 🧠 **西宫 (Memory Agent):** 伴驾。负责长短期记忆管理与上下文注入。
+* 🛡️ **中宫 (Security Agent):** 禁军。负责输出审核、防 Prompt 注入与合规拦截。
 
-```
-你 (皇帝/皇太后) → 太子 (分拣) → 皇后 (协理) → 三宫 (规划) → 门下省 (审议) → 尚书省 (派发) → 六院 (执行) → 回奏
-```
-
-这不是花哨的 metaphor，这是**真正的分权制衡**：
-
-| | CrewAI | MetaGPT | AutoGen | **三宫六院** |
-|---|:---:|:---:|:---:|:---:|
-| **审核机制** | ❌ 无 | ⚠️ 可选 | ⚠️ Human-in-loop | **✅ 门下省专职审核 · 可封驳** |
-| **实时看板** | ❌ | ❌ | ❌ | **✅ 储秀宫 Kanban + 时间线** |
-| **任务干预** | ❌ | ❌ | ❌ | **✅ 叫停 / 取消 / 恢复** |
-| **流转审计** | ⚠️ | ⚠️ | ❌ | **✅ 完整奏折存档** |
-| **Agent 健康监控** | ❌ | ❌ | ❌ | **✅ 心跳 + 活跃度检测** |
-| **热切换模型** | ❌ | ❌ | ❌ | **✅ 看板内一键切换 LLM** |
-| **技能管理** | ❌ | ❌ | ❌ | **✅ 查看 / 添加 Skills** |
-| **新闻聚合推送** | ❌ | ❌ | ❌ | **✅ 天下要闻 + 飞书推送** |
-| **部署难度** | 中 | 高 | 中 | **低 · 一键安装 / Docker** |
-
-> **核心差异：制度性审核 + 完全可观测 + 实时可干预**
-
-<details>
-<summary><b>🔍 为什么「门下省审核」是杀手锏？（点击展开）</b></summary>
-
-<br>
-
-CrewAI 和 AutoGen 的 Agent 协作模式是 **"做完就交"**——没有人检查产出质量。就像一个公司没有 QA 部门，工程师写完代码直接上线。
-
-三宫六院的 **门下省** 专门干这件事：
-
-- 📋 **审查方案质量** —— 三宫的规划是否完备？子任务拆解是否合理？
-- 🚫 **封驳不合格的产出** —— 不是 warning，是直接打回重做
-- 🔄 **强制返工循环** —— 直到方案达标才放行
-
-这不是可选的插件——**它是架构的一部分**。每一个旨意都必须经过门下省，没有例外。
-
-这就是为什么三宫六院能处理复杂任务而结果可靠：因为在送到执行层之前，有一个强制的质量关卡。1300 年前唐太宗就想明白了——**不受制约的权力必然会出错**。
-
-</details>
+### 3️⃣ 六院 - 专职执行层 (Workers)
+* ✍️ **翰林院 (Writer Agent):** 文案生成与文档编写。
+* 🌐 **天机院 (Search Agent):** 联网检索与 RAG 知识库问答。
+* 📊 **神算院 (Data Analyst):** 数据处理与可视化图表生成。
+* 💻 **天工院 (Coder Agent):** 代码编写、架构设计。
+* 🧐 **御史院 (Reviewer Agent):** 代码审查、逻辑纠错与“弹劾”。
+* 🛠️ **神机院 (Tool-Use Agent):** 外部 API 调用与自动化操作。
 
 ---
 
-## ✨ 功能全景
+## 📋 东宫看板 (10 大功能面板)
 
-### 🏛️ 二十二部制 Agent 架构
-- **太子** 消息分拣 —— 闲聊自动回复，旨意才建任务
-- **皇后** 协理后宫 —— 辅助太子分拣，重大决策复核
-- **三宫**（乾清宫·交泰殿·坤宁宫）负责规划、审议、协理
-- **十二院**（东六宫·西六宫 + 吏部·早朝官）负责专项执行
-- 严格的权限矩阵 —— 谁能给谁发消息，白纸黑字
-- 每个 Agent 独立 Workspace · 独立 Skills · 独立模型
-- **旨意数据清洗** —— 标题/备注自动剥离文件路径、元数据、无效前缀
+基于 React 18 + Python stdlib 构建的零依赖强大看板。
 
-### 📋 储秀宫看板（10 个功能面板）
-
-<table>
-<tr><td width="50%">
-
-**📋 旨意看板 · Kanban**
-- 按状态列展示全部任务
-- 省部过滤 + 全文搜索
-- 心跳徽章（🟢活跃 🟡停滞 🔴告警）
-- 任务详情 + 完整流转链
-- 叫停 / 取消 / 恢复操作
-
-</td><td width="50%">
-
-**🔭 省部调度 · Monitor**
-- 可视化各状态任务数量
-- 部门分布横向条形图
-- Agent 健康状态实时卡片
-
-</td></tr>
-<tr><td>
-
-**📜 奏折阁 · Memorials**
-- 已完成旨意自动归档为奏折
-- 五阶段时间线：圣旨→三宫→门下→六院→回奏
-- 一键复制为 Markdown
-- 按状态筛选
-
-</td><td>
-
-**📜 旨库 · Template Library**
-- 9 个预设圣旨模板
-- 分类筛选 · 参数表单 · 预估时间和费用
-- 预览旨意 → 一键下旨
-
-</td></tr>
-<tr><td>
-
-**👥 官员总览 · Officials**
-- Token 消耗排行榜
-- 活跃度 · 完成数 · 会话统计
-
-</td><td>
-
-**📰 天下要闻 · News**
-- 每日自动采集科技/财经资讯
-- 分类订阅管理 + 飞书推送
-
-</td></tr>
-<tr><td>
-
-**⚙️ 模型配置 · Models**
-- 每个 Agent 独立切换 LLM
-- 应用后自动重启 Gateway（~5秒生效）
-
-</td><td>
-
-**🛠️ 技能配置 · Skills**
-- 各省部已安装 Skills 一览
-- 查看详情 + 添加新技能
-
-</td></tr>
-<tr><td>
-
-**💬 小任务 · Sessions**
-- OC-* 会话实时监控
-- 来源渠道 · 心跳 · 消息预览
-
-</td><td>
-
-**🎬 上朝仪式 · Ceremony**
-- 每日首次打开播放开场动画
-- 今日统计 · 3.5秒自动消失
-
-</td></tr>
-</table>
+* **📋 旨意 Kanban:** 任务状态墙，心跳徽章（🟢活跃/🔴告警），支持实时操控。
+* **📜 奏折阁 (Memorials):** 已完成任务自动归档，生成 Markdown 格式的正式奏折。
+* **⚙️ 模型配置:** 运行时为 22 个 Agent 分别赐配模型（GPT-4/Claude/MiniMax等）。
+* **🛠️ 技能配置:** 从官方 **Skills Hub** 一键增补远程技能，赋予 Agent 爬虫、代码审计等新能力。
+* **📰 天下要闻:** 每日自动采集科技资讯，通过飞书推送，让“皇帝”尽知天下事。
 
 ---
 
-## 🖼️ 截图
+## 🚀 30 秒快速体验
 
-### 旨意看板
-![旨意看板](docs/screenshots/01-kanban-main.png)
-
-<details>
-<summary>📸 展开查看更多截图</summary>
-
-### 省部调度
-![省部调度](docs/screenshots/02-monitor.png)
-
-### 任务流转详情
-![任务流转详情](docs/screenshots/03-task-detail.png)
-
-### 模型配置
-![模型配置](docs/screenshots/04-model-config.png)
-
-### 技能配置
-![技能配置](docs/screenshots/05-skills-config.png)
-
-### 官员总览
-![官员总览](docs/screenshots/06-official-overview.png)
-
-### 会话记录
-![会话记录](docs/screenshots/07-sessions.png)
-
-### 奏折归档
-![奏折归档](docs/screenshots/08-memorials.png)
-
-### 圣旨模板
-![圣旨模板](docs/screenshots/09-templates.png)
-
-### 天下要闻
-![天下要闻](docs/screenshots/10-morning-briefing.png)
-
-### 上朝仪式
-![上朝仪式](docs/screenshots/11-ceremony>
-
----
-
-##.png)
-
-</details 🚀 30 秒快速体验
-
-### Docker 一键启动
-
+### A. Docker 一键体验 (Demo 模式)
 ```bash
 docker run -p 7891:7891 cft0808/sangongliuyuan-demo
 ```
@@ -322,7 +185,7 @@ open http://127.0.0.1:7891
                                              │ 传旨
                            ┌─────────────────▼─────────────────┐
                            │          👸 皇后 (huanghou)         │
-                           │    协理：辅助分拣、重大决策复核        │
+                           │    协理：翻牌子、后宫妃嫔、皇帝起居    │
                            └─────────────────┬─────────────────┘
                                              │ 传旨
                            ┌─────────────────▼─────────────────┐
@@ -331,42 +194,38 @@ open http://127.0.0.1:7891
                            └─────────────────┬─────────────────┘
                                              │ 提交审核
                            ┌─────────────────▼─────────────────┐
-                           │          🔍 门下省 (menxia)       │
+                           │          🔍 六院 (menxia)         │
                            │       审议方案 → 准奏 / 封驳 🚫      │
                            └─────────────────┬─────────────────┘
                                              │ 准奏 ✅
                            ┌─────────────────▼─────────────────┐
-                           │          📮 尚书省 (shangshu)       │
+                           │          📮 众议院 (shangshu)       │
                            │     派发任务 → 协调六院 → 汇总回奏    │
                            └───┬──────┬──────┬──────┬──────┬───┘
                                │      │      │      │      │
                          ┌─────▼┐ ┌───▼───┐ ┌▼─────┐ ┌───▼─┐ ┌▼─────┐
-                         │💰 户部│ │📝 礼部│ │⚔️ 兵部│ │⚖️ 刑部│ │🔧 工部│
+                         │💰 翰林│ │📝 天机│ │⚔️ 神算│ │⚖️ 御史│ │🔧 神机│
                          │ 数据  │ │ 文档  │ │ 工程  │ │ 合规  │ │ 基建  │
                          └──────┘ └──────┘ └──────┘ └─────┘ └──────┘
                                                                ┌──────┐
-                                                               │📋 吏部│
+                                                               │📋 天工│
                                                                │ 人事  │
                                                                └──────┘
 ```
 
 ### 各省部职责
 
-| 部门 | Agent ID | 职责 | 擅长领域 |
-|------|----------|------|---------|
 | 👑 **太子** | `taizi` | 消息分拣、需求整理 | 闲聊识别、旨意提炼、标题概括 |
-| 👸 **皇后** | `huanghou` | 协理分拣、重大复核 | 决策辅助、后宫管理、礼制把控 |
-| 🏛️ **乾清宫** | `qianqinggong` | 接旨、规划、拆解 | 需求理解、任务分解、方案设计 |
-| 🏛️ **交泰殿** | `jiaotaidian` | 皇后权力中枢、决策辅助 | 资源协调、利益平衡 |
-| 🏛️ **坤宁宫** | `kunninggong` | 祭祀典礼、礼仪规范 | 仪式安排、礼制审核 |
-| 🔍 **门下省** | `menxia` | 审议、把关、封驳 | 质量评审、风险识别、标准把控 |
-| 📮 **尚书省** | `shangshu` | 派发、协调、汇总 | 任务调度、进度跟踪、结果整合 |
-| 💰 **户部** | `hubu` | 数据、资源、核算 | 数据处理、报表生成、成本分析 |
-| 📝 **礼部** | `libu` | 文档、规范、报告 | 技术文档、API 文档、规范制定 |
-| ⚔️ **兵部** | `bingbu` | 代码、算法、巡检 | 功能开发、Bug 修复、代码审查 |
-| ⚖️ **刑部** | `xingbu` | 安全、合规、审计 | 安全扫描、合规检查、红线管控 |
-| 🔧 **工部** | `gongbu` | CI/CD、部署、工具 | Docker 配置、流水线、自动化 |
-| 📋 **吏部** | `libu_hr` | 人事、Agent 管理 | Agent 注册、权限维护、培训 |
+| 👸 **皇后** | `huanghou` | 协理小太子，管理好东宫，重点是皇帝翻牌子、后宫妃嫔的养成、和皇帝的起居等 |
+| 🏛️ **东宫** | `The Router Agent` | 系统的“皇后”。负责统筹全局，接收你的 Prompt，理解意图，并将其精准分发给六院的其他小主（Agents） |
+| 🏛️ **西宫** | `The Context & Memory Agent` | 负责“伴驾”与记忆。管理长短期 Memory，记住你的偏好、历史对话和上下文，确保所有回复合乎你的心意 |
+| 🏛️ **中宫** | `The Security & Audit Agent` | 负责后宫安保。也就是你的 Full Audit Trails，监控所有 Agent 的 API 调用、成本消耗和输出安全性，防止“后宫干政”（幻觉或越权操作） |
+| 🔍 **翰林院** | `The Writer Agent` | 专职内容生成、文案润色与文档编写 |
+| 📮 **天机院** | `The Search & RAG Agent` | 专职联网搜索与知识库检索，为你打探外界情报 |
+| 💰 **神算院** | `The Data Analyst Agent` | 专职处理 Excel/CSV、生成图表与数据可视化 |
+| 📝 **天工院** | `The Coder Agent` | 专职写代码、Debug 与技术架构设计 |
+| ⚔️ **御史院** | `The Reviewer Agent` | 专职 Code Review 与内容逻辑交叉验证，负责“挑错” |
+| ⚖️ **神机院** | `The Tool-Use Agent` | 专职调用外部 API（发邮件、查天气、控制智能家居等自动化操作） |
 | 🌅 **早朝官** | `zaochao` | 每日早朝、新闻聚合 | 定时播报、数据汇总 |
 
 ### 等级体系
@@ -394,12 +253,12 @@ open http://127.0.0.1:7891
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **太子** | — | ✅ | ✅ | | | | | | | | | | |
 | **皇后** | ✅ | — | ✅ | ✅ | ✅ | | | | | | | | |
-| **乾清宫** | ✅ | ✅ | — | | | ✅ | ✅ | | | | | | |
-| **交泰殿** | ✅ | ✅ | | — | | ✅ | ✅ | | | | | | |
-| **坤宁宫** | ✅ | ✅ | | | — | ✅ | ✅ | | | | | | |
-| **门下省** | | | ✅ | ✅ | ✅ | — | ✅ | | | | | | |
-| **尚书省** | ✅ | ✅ | | | | ✅ | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **六院+吏部** | | | | | | | ✅ | | | | | | |
+| **东宫** | ✅ | ✅ | — | | | ✅ | ✅ | | | | | | |
+| **西殿** | ✅ | ✅ | | — | | ✅ | ✅ | | | | | | |
+| **中宫** | ✅ | ✅ | | | — | ✅ | ✅ | | | | | | |
+| **三省** | | | ✅ | ✅ | ✅ | — | ✅ | | | | | | |
+| **六院** | ✅ | ✅ | | | | ✅ | — | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **众议院** | | | | | | | ✅ | | | | | | |
 
 ### 任务状态流转
 
